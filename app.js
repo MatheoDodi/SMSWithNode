@@ -4,8 +4,9 @@ const ejs = require('ejs');
 const Nexmo = require('nexmo');
 const socketio = require('socket.io');
 
-// Initializing app
 
+
+// Initializing app
 const app = express();
 
 // Template engine setup
@@ -23,6 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.render('index');
 })
+
+// Catch form submit
+app.post('/', (req, res) => {
+    res.send(req.dody);
+    console.log(req.body);
+});
 
 // Define port
 const port = 3000;
