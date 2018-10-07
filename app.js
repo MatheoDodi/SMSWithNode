@@ -4,7 +4,11 @@ const ejs = require('ejs');
 const Nexmo = require('nexmo');
 const socketio = require('socket.io');
 
-
+// Initalizing app
+const nexmo = new Nexmo({
+    apiKey: '5fa1946b',
+    apiSecret: 'Jcww7I3BX0w6SPGm'
+}, {debug: true})
 
 // Initializing app
 const app = express();
@@ -27,8 +31,8 @@ app.get('/', (req, res) => {
 
 // Catch form submit
 app.post('/', (req, res) => {
-    res.send(req.dody);
-    console.log(req.body);
+    const number = req.body.number;
+    const text = req.body.text;
 });
 
 // Define port
